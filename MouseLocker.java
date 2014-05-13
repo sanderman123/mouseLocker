@@ -5,14 +5,38 @@ import java.awt.Point;
 import java.awt.Robot;
 import javax.swing.JFrame;
 
-public class MouseLocker extends Thread {
+public class MouseLocker implements Runnable {
 
-	private static Point ul = new Point();
+	public static Point ul = new Point();
 	private static Point lr = new Point();
 	private static Point mLoc = new Point();
 
-	public MouseLocker(String str) {
+	/*public MouseLocker(String str) {
 		super(str);
+	}*/
+	
+	/**
+	 * 
+	 * @return Upper Left corner of the mouse cage
+	 */
+	public Point getUL(){
+		return ul;
+	}
+	
+	/**
+	 * 
+	 * @return Lower Right corner of the mouse cage
+	 */
+	public Point getLR(){
+		return lr;
+	}
+	
+	/**
+	 * 
+	 * @return Current mouse location
+	 */
+	public Point getMLoc(){
+		return mLoc;
 	}
 
 	private static Point lockMouse(Point mLoc, Point ul, Point lr) {
